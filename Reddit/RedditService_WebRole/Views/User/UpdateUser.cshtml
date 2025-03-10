@@ -1,0 +1,131 @@
+﻿@model UserService_Data.User
+@{
+    ViewBag.Title = "UpdateUser";
+}
+
+<!DOCTYPE html>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="~/Content/styleUserPage.css">
+</head>
+<body>
+    
+    <div class="container">
+        <form id="userForm" enctype="multipart/form-data">
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Update User Data</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Ime) @Html.ValidationMessageFor(model => model.Ime)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Prezime)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Prezime) @Html.ValidationMessageFor(model => model.Prezime)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Adresa)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Adresa) @Html.ValidationMessageFor(model => model.Adresa)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Grad)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Grad) @Html.ValidationMessageFor(model => model.Grad)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Drzava)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Drzava) @Html.ValidationMessageFor(model => model.Drzava)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Broj_telefona)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Broj_telefona) @Html.ValidationMessageFor(model => model.Broj_telefona)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email) @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.Label("Old Password")
+                </div>
+                <div class="editor-field">
+                    <input type="password" name="OldPassword" required />
+                    @Html.ValidationMessage("OldPassword")
+                </div>
+                <div class="editor-label">
+                    @Html.Label("New Password")
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="editor-label">
+                    @Html.Label("Profile Picture")
+                </div>
+                <div class="editor-field">
+                    <input type="file" id="profilePicture" name="file" />
+                </div>
+                <p>
+                    <input type="button" value="Save Changes" onclick="submitForm()" />
+                </p>
+            </fieldset>
+        </form>
+        <button onclick="goBack()">Back</button>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+
+            async function submitForm() {
+                const form = document.getElementById('userForm');
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch('/User/Update', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+
+                    const data = await response.json();
+                    if (data.token) {
+                        localStorage.setItem('token', data.token); // Store the new token
+                        //alert('User data updated successfully');
+                        window.location.href = '/User/UserProfile';
+                    }
+                    else {
+                        alert('Failed to update username.');
+                    }
+                } catch (error) {
+                        console.error('Error updating username:', error);
+                        alert('An error occurred while updating the username.');
+                    }
+            }
+
+
+
+        </script>
+    </div>
+</body>
+</html>
+

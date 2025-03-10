@@ -1,0 +1,118 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 97%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .button-container button, .button-container a {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+.add-topic {
+    background-color: red;
+    color: white;
+}
+
+.logout, .profile {
+    background-color: blue;
+    color: white;
+}
+
+.topics {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; /* Align topics in the center */
+}
+
+    .topics li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+/* CSS za teme */
+
+.theme-container {
+    border: 3px solid #ffcccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+    .theme-container h2 {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .theme-container p {
+        font-size: 16px;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+    .theme-container img {
+        width: 300px;
+        height:200px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .theme-container h5{
+        color: gray;
+    }
+
+    
+
+.trash, .subscribeButton, .unsubscribeButton {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    cursor: pointer; 
+}
+
+.trash {
+    font-size: 20px; /* Povećajemo veličinu fonta */
+}
+
+.subscribeButton, .unsubscribeButton {
+    padding: 5px 10px; /* Manji padding */
+    background-color: red; /* Boja pozadine */
+    color: white; /* Boja teksta */
+    border: none; /* Bez ivice */
+    border-radius: 5px; /* Zaobljeni uglovi */
+}
+
+.votes {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}

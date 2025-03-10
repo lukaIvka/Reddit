@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Profile Page";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="~/Content/profile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/userProfile.js"></script>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="" alt="Profile Photo" class="profile-photo" />
+            <button onclick="sendTokenToServer()" class="edit-button">Edit</button>
+            <a href="UserPage" class="home-button">🏠</a>
+            <h1></h1>
+            <p class="email"></p>
+        </div>
+        <div class="profile-details">
+            <h2>Personal Information</h2>
+            <p class="address"></p>
+            <p class="phone"></p>
+        </div>
+        <div class="profile-activity">
+            <h2>Recent Activity</h2>
+            <h3>Posts</h3>
+            <ul class="posts">
+                <li>No posts available.</li>
+            </ul>
+            <h3>Comments</h3>
+            <ul class="comments">
+                <li>No comments available.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script>
+        function sendTokenToServer(token) {
+            fetch('/Home/SaveToken', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: token })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    console.log('Token sent to server successfully');
+                })
+                .catch(error => {
+                    console.error('Error sending token to server:', error);
+                });
+        }
+
+        const token = localStorage.getItem('token');
+        console.log(token);
+        sendTokenToServer(token);
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Home Page</h1>
+        <h1>Welcome @ViewBag.Username</h1>
+        <ul>
+            <li><a href="@Url.Action("Login", "Authentication")">Login</a></li>
+            <li><a href="@Url.Action("Register", "Authentication")">Register</a></li>
+            <li><a href="@Url.Action("UserPage", "User")">User page</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

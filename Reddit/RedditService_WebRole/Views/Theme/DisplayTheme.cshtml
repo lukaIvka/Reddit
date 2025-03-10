@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Theme Details";
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/themeDetails.js"></script>
+    <link href="~/Content/themeDetails.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="theme-details">
+        <div class="theme-header">
+            <h2 id="theme-title"></h2>
+            <p id="theme-content"></p>
+            <img id="theme-image" src="" alt="Theme Image" />
+            <div class="theme-meta">
+                <span id="theme-upvotes"></span> Upvotes |
+                <span id="theme-downvotes"></span> Downvotes |
+                Published on <span id="theme-time"></span> by <span id="theme-publisher"></span>
+            </div>
+            <button id="back-button" onclick="goBackToHome()">Back to Home</button>
+        </div>
+
+        <div class="theme-comments">
+            <h3>Comments</h3>
+            <ul id="comments-list"></ul>
+            <textarea id="comment-content" placeholder="Add a comment..."></textarea>
+            <button id="submit-comment"  onclick="AddComment()">Submit</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Login</title>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/login.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Login to Reddit</h2>
+        <form action="~/Authentication/Authenticate" method="post" id="loginForm" onsubmit="submitLoginForm(); return false;">
+            <input type="text" name="email" placeholder="Email" id="email" required><br>
+            <input type="password" name="password" placeholder="Password" id="password" required><br>
+            <input type="submit" value="Login">
+        </form>
+        <div class="register-link">
+            Don't have an account? <p>@Html.ActionLink("Register here", "Register")</p>.
+        </div>
+    </div>
+    
+    <script>
+
+    </script>
+</body>
+</html>

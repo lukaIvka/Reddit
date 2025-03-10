@@ -1,0 +1,45 @@
+﻿@model UserService_Data.User
+@{
+    ViewBag.Title = "User Page";
+    var user = ViewBag.User as UserService_Data.User;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/homepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/userpage.js" type="text/javascript"></script>
+    <script src="~/Scripts/theme.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <button class="add-topic" onclick="newTopicNavigate()">Add New Topic</button>
+
+
+            <div class="auth-container">
+
+            </div>
+
+        </div>
+        <div>
+            <input type="text" id="searchInput" placeholder="Search by title">
+            <button onclick="searchThemes()">Search</button>
+            <select id="sortOrder" onchange="sortThemes()">
+                <option value="asc">Sort A-Z</option>
+                <option value="desc">Sort Z-A</option>
+            </select>
+
+        </div>
+
+        <ul class="topics"></ul>
+    </div>
+
+    
+</body>
+</html>
